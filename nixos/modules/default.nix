@@ -1,0 +1,29 @@
+{
+  imports = [
+    ../../overlays
+    ./apps.nix
+    ./boot.nix
+    ./common.nix
+    ./compose-runner.nix
+    ./desktops.nix
+    ./deterministic-ids.nix
+    ./development.nix
+    ./gaming.nix
+    ./hardening.nix
+    ./home-manager.nix
+    ./locales.nix
+    ./misc.nix
+    ./monitoring.nix
+    ./msmtp.nix
+    ./networking.nix
+    ./nix.nix
+    ./oci.nix
+    ./users.nix
+    ./servers.nix
+    ./shells.nix
+    ./syncthing.nix
+    ./tailscale.nix
+    ./tailscale-tls.nix
+    ./zfs.nix
+  ];
+}

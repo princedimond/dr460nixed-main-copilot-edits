@@ -1,0 +1,8 @@
+.cz.json
+.github/workflows/*
+CHANGELOG.md
+configurations/docker-compose/**
+docs/theme/index.hbs
+flake.lock
+nixos/**
+secrets/global.yaml
