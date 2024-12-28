@@ -10,7 +10,7 @@ fi
 # Prepare our environment
 prepare() {
 	# Clone dr460nixed repo if it is not present, otherwise use current dir
-	if [ ! "$(test -f flake.nix)" ]; then
+	if [ ! -f flake.nix ]; then
 		test -d /tmp/dr460nixed && sudo rm -rf /tmp/dr460nixed
 		WORK_DIR=/tmp/dr460nixed
 		git clone https://github.com/dr460nf1r3/dr460nixed.git "$WORK_DIR"
@@ -72,10 +72,10 @@ disko() {
 			DISKO_MODULE=simple-efi
 			;;
 		4)
-			DISKO_MODULE=zfs-encrypted
+			DISKO_MODULE=zfs
 			;;
 		5)
-			DISKO_MODULE=zfs
+			DISKO_MODULE=zfs-encrypted
 			;;
 		*)
 			read -rp "Invalid input. Enter the number of the partition layout you want to use: " _LAYOUT
@@ -143,9 +143,10 @@ install_system() {
 # Notices
 finish() {
 	echo "The installation finished successfully. You may now reboot into your new system."
-	confirm_choices "This will remove the temporary directory an reboot the system."
+	confirm_choices "This will remove the temporary directory and reboot the system."
 	umount -Rf /mnt
 	rm -rf "$WORK_DIR"
+	reboot
 }
 
 # Actually execute our functions
